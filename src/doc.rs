@@ -733,7 +733,6 @@ impl<R: Read + Seek> EpubDoc<R> {
             .ok_or_else(|| XMLError::AttrNotFound("navMap".into()))?;
 
         self.toc.append(&mut self.get_navpoints(&mapnode.borrow()));
-        self.toc.sort();
 
         Ok(())
     }
@@ -773,7 +772,6 @@ impl<R: Read + Seek> EpubDoc<R> {
             }
         }
 
-        navpoints.sort();
         navpoints
     }
 }
